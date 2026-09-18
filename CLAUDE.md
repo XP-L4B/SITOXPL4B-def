@@ -23,6 +23,12 @@ modifica è online.
 Resta valido il resto: prima di pushare verifica che il sito funzioni davvero
 (vedi sotto), e descrivi nel messaggio di commit cosa cambia e perché.
 
+**Non togliere il file `CNAME`.** Contiene `www.xpl4b.com` ed è quello che
+tiene il dominio personalizzato attaccato al sito: GitHub lo ha scritto da solo
+quando il dominio è stato salvato nelle impostazioni di Pages, e se sparisce dal
+branch Pages smette di rispondere sul dominio e torna a rispondere solo su
+`xp-l4b.github.io`. Va trattato come `.nojekyll`: si lascia lì e basta.
+
 **Non togliere `.nojekyll`.** Senza, Pages passa ogni `.html` attraverso
 Jekyll, che si rompe sui segnaposto `{{ … }}` dei file in `project/` — e una
 build fallita lascia online la versione precedente, cioè un sito che sembra

@@ -183,6 +183,16 @@ in `PEOPLE` in `js/people-band.js`; an empty list hides the band.
 `main` is the published branch: GitHub Pages builds it from the repository
 root, so a push to `main` is a deploy. It is the only branch.
 
+**`CNAME` must stay too.** It holds `www.xpl4b.com`, and it is what keeps the
+custom domain attached: GitHub writes it into the branch when the domain is
+saved in the Pages settings, and if it ever leaves the branch the site stops
+answering on the domain and answers only on `xp-l4b.github.io`.
+
+The DNS that has to exist for it to work, at whoever hosts the zone: a `CNAME`
+record for `www` pointing at `xp-l4b.github.io`, and four `A` records on the
+apex — 185.199.108.153, .109.153, .110.153 and .111.153 — so `xpl4b.com`
+redirects to `www` rather than going nowhere.
+
 **`.nojekyll` must stay.** GitHub Pages runs every `.html` file through
 Jekyll's Liquid templating when it publishes from a branch, and `project/`
 holds three files from the design handoff with 55 `{{ … }}` placeholders each.
